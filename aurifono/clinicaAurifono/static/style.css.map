@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "mappings": "AGAA,AAAA,cAAc,AAAA,CACV,UAAU,CAAE,IAAI,CACnB",
+    "sources": [
+        "css/style.scss",
+        "css/_header.scss",
+        "css/_footer.scss",
+        "css/pages/_cadastro.scss"
+    ],
+    "names": [],
+    "file": "style.css"
+}
