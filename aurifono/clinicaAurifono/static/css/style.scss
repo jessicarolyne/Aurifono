@@ -1,6 +1,6 @@
-@import 'header';
-@import 'footer';
+@import 'pages/index';
 @import 'pages/cadastro';
+@import 'pages/historico';
 
 *{
     margin: 0;
@@ -241,6 +241,8 @@ header{
         display: flex;
         align-items: center;
         height: 60px;
+        justify-content: space-between;
+        margin-right: 15px;
         .bx-menu, .texto{
             color: #11101d;
             font-size: 35px;
@@ -248,15 +250,74 @@ header{
         .bx-menu{
             margin: 0 15px;
             cursor: pointer;
+            margin-top: auto;
+            margin-bottom: auto;
         }
         .texto{
             font-size: 26px;
         }
+        .empresa{
+            display: none;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .busca{
+            position: relative;
+            width: 250px;
+            height: 35px;
+            margin-right: 15px;
+            input{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                border-radius: 12px;
+                outline: none;
+                border: none;
+                background: #fff;
+                color: #11101d;
+                padding-left: 28px;
+                padding-right: 15px;
+            }
+            i{
+                width: 35px;
+                height: 35px;
+                border-radius: 12px;
+                line-height: 35px;
+                text-align: center;
+            }
+            .bx-search{
+                position: absolute;
+                z-index: 999;
+                color: #11101d;
+                font-size: 22px;
+            }
+        }
     }
+    
     &.close {
         left: 78px;
         width: calc(100% - 78px) !important;
         transition: all 0.5s ease;
+        .conteudo-home{
+            .empresa{
+                color: #fff;
+                font-size: 35px;
+                text-shadow: 0.02rem 0.1rem #1d1b31;
+                display: flex;
+                margin-top: auto;
+                margin-bottom: auto;
+                opacity: 1;
+                pointer-events: none;
+                transition: all 0.5s ease;
+                transition-delay: 0.1s;
+                .auri{
+                    color: #11101d;
+                    text-shadow: none;
+                }
+            }
+        }
     }
 }
 .paginas, .footer{
