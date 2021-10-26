@@ -7,13 +7,14 @@ class profissionalenc_profissionalenc(models.Model):
         ('1','Ativo'),
         ('0','Inativo')
     )
-    nome = models.CharField(max_length=100)
+    nome = models.CharField(max_length=100, verbose_name='Nome')
     status = models.CharField(
         max_length=1,
-        choices=STATUS    
+        choices=STATUS,
+        verbose_name='Status',    
     )
     def __str__(self):
-        return "{} ({})".format(self.nome)
+        return self.nome
 
 class paciente_paciente(models.Model):
     SEXO = (
@@ -31,7 +32,7 @@ class paciente_paciente(models.Model):
         choices=SEXO,
         verbose_name='Sexo'
     )
-    Profissional_id = models.ForeignKey(profissionalenc_profissionalenc, on_delete=models.PROTECT)
+    Profissional_id = models.ForeignKey(profissionalenc_profissionalenc, on_delete=models.PROTECT, verbose_name='Profissional Responsável')
     
     def __str__(self):
         return "{} ({})".format(self.nome, self.DataNascimento)
@@ -41,23 +42,23 @@ class avaliacaoad_avaliacaoad(models.Model):
         ('ES', 'ESQUERDA'),
         ('DI', 'DIREITA')
     )
-    DataAvaliacao = models.DateField()
+    DataAvaliacao = models.DateField(verbose_name='Data da Avaliação')
     QOrelha = models.CharField(
         max_length=2,
         choices=ORELHA
     )
-    paciente_id = models.ForeignKey(paciente_paciente, on_delete=models.PROTECT)
+    paciente_id = models.ForeignKey(paciente_paciente, on_delete=models.PROTECT, verbose_name='Paciente')
     def __str__(self):
-        return self.DataAvaliacao
+        return "{} ({})".format(self.paciente_id, self.DataAvaliacao)
 
 class comunicoral_comunicoral(models.Model):
-    dsc_habilidade = models.CharField(max_length=150)
+    dsc_habilidade = models.CharField(max_length=150, verbose_name='Descrição da Habilidade')
     def __str__(self):
         return self.dsc_habilidade
 
 class comunicoralidade_comunicoralidade(models.Model):
-    resp_oralidade = models.CharField(max_length=1)
-    ComunicOral_id = models.ForeignKey(comunicoral_comunicoral, on_delete=models.PROTECT)
-    avaliacaoAD_id = models.ForeignKey(avaliacaoad_avaliacaoad, on_delete=models.PROTECT)
+    resp_oralidade = models.CharField(max_length=1, verbose_name='Resp. Oralidade')
+    ComunicOral_id = models.ForeignKey(comunicoral_comunicoral, on_delete=models.PROTECT, verbose_name='Comunicação Oral')
+    avaliacaoAD_id = models.ForeignKey(avaliacaoad_avaliacaoad, on_delete=models.PROTECT, verbose_name='Avaliação')
     def __str__(self):
         return self.resp_oralidade
