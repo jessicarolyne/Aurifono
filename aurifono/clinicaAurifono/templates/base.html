@@ -28,12 +28,6 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#">
-                    <i class='bx bx-user'></i>
-                    <span class="nome-link">Usuário</span>
-                  </a>
-                </li>
-                <li>
                   <div class="icones">
                     <a href="#">
                       <i class='bx bxs-id-card'></i>
@@ -82,6 +76,18 @@
                   </ul>
                 </li>
                 <li>
+                  <a href="#">
+                    <i class='bx bx-receipt'></i>
+                    <span class="nome-link">Consulta</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class='bx bxs-calendar-check'></i>
+                    <span class="nome-link">Agenda</span>
+                  </a>
+                </li>
+                <li>
                   <div class="icones">
                     <a href="#">
                       <i class='bx bx-cylinder'></i>
@@ -89,6 +95,13 @@
                     </a>
                     <i class='bx bx-chevron-down arrow'></i>
                   </div>
+                  <ul class="sub-menu">
+                    <li>
+                      <a class="nome-link" href="">
+                        Pacientes
+                      </a>
+                    </li>
+                  </ul>
                 </li>
                 <li>
                   <div class="perfil">
@@ -105,6 +118,12 @@
                     </div>
                     <i class='bx bx-log-out'></i>
                   </div>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class='bx bxs-brightness'></i>
+                    <span class="nome-link">Configurações</span>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -124,7 +143,7 @@
       {% endblock %}
     </section>
     <section class="paginas">
-        <div class="container">
+        <div class="container-fluid">
             {% block conteudo %}{% endblock %}
         </div>
     </section>
