@@ -1,4 +1,5 @@
 @import 'pages/index';
+@import 'pages/buscaPaciente';
 @import 'pages/cadastro';
 @import 'pages/historico';
 
@@ -8,7 +9,7 @@
     box-sizing: border-box;
 }
 header{
-    .menu-principal{
+    .menu-principal{ 
         position: fixed;
         top: 0;
         left: 0;
@@ -97,7 +98,7 @@ header{
                         }
                     }
                     .nome-link{
-                        // display: none;
+                        display: none;
                     }
                     .blank{
                         opacity: 1;

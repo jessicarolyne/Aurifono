@@ -3,5 +3,7 @@
 {% block title %}cadastro{% endblock %}
 
 {% block conteudo %}
-    <h1>cadastro</h1>
+    {% for paciente in pacientes %}
+    <div><a href="/paciente/{{pacientes.id}}"></a>{{paciente.nome}}</div>
+    {% endfor %}
 {% endblock %}
