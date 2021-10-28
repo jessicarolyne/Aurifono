@@ -1,21 +1,24 @@
 .page-buscaPaciente{
     .lista-pacientes{
         padding-left: 0;
-        .btn-buscar{
-            display: inline-block;
-            // background-color: #3476e2;
-            // cursor: pointer;
-            // color: #fff;
-            // padding: 8px;  
-            // border-radius: 5px;
-            // white-space: nowrap;
-            margin-right: 50px;
-            .btn-primary{
-                white-space: nowrap;
-                .bi-plus{
-                    margin-right:10px;
-                    // margin-left:5px;
-                } 
+        a{
+            text-decoration: none;
+            .btn-buscar{
+                display: inline-block;
+                // background-color: #3476e2;
+                // cursor: pointer;
+                // color: #fff;
+                // padding: 8px;  
+                // border-radius: 5px;
+                // white-space: nowrap;
+                margin-right: 50px;
+                .btn-primary{
+                    white-space: nowrap;
+                    .bi-plus{
+                        margin-right:10px;
+                        // margin-left:5px;
+                    } 
+                }
             }
         }
         .barra-busca{

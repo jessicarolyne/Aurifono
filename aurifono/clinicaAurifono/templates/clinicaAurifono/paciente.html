@@ -3,7 +3,13 @@
 {% block title %}Paciente{% endblock %}
 {% block conteudo %}
     <div class="offset-1 col-10 mt-5">
-        <h1>{{paciente.nome}}</h1>
+        <h1>Novo Paciente</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="button" class="btn btn-success" value="Cadastrar">
+        </form>
+        <p>{{paciente.nome}}</p>
         <p>RG: {{paciente.RG}}</p>
         <p>CPF: {{paciente.CPF}}</p>
         <p>Data de Nascimento: {{paciente.DataNascimento}}</p>
