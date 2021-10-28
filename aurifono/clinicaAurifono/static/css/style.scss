@@ -11,7 +11,7 @@
 header{
     .menu-principal{ 
         position: fixed;
-        top: 0;
+        top: 0; 
         left: 0;
         width: 290px;
         height: 100%;
@@ -244,6 +244,9 @@ header{
         height: 60px;
         justify-content: space-between;
         margin-right: 15px;
+        a{
+            text-decoration: none;
+        }
         .bx-menu, .texto{
             color: #11101d;
             font-size: 35px;

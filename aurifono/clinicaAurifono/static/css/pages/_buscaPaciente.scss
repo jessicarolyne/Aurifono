@@ -2,18 +2,21 @@
     .lista-pacientes{
         padding-left: 0;
         .btn-buscar{
-            background-color: #3476e2;
-            cursor: pointer;
             display: inline-block;
-            color: #fff;
-            padding: 8px;
-            border-radius: 5px;
-            margin-right: 25px;
-            white-space: nowrap;
-            .bi-plus{
-                margin-right:10px;
-                margin-left:5px;
-            } 
+            // background-color: #3476e2;
+            // cursor: pointer;
+            // color: #fff;
+            // padding: 8px;  
+            // border-radius: 5px;
+            // white-space: nowrap;
+            margin-right: 50px;
+            .btn-primary{
+                white-space: nowrap;
+                .bi-plus{
+                    margin-right:10px;
+                    // margin-left:5px;
+                } 
+            }
         }
         .barra-busca{
             padding: 0;
@@ -23,7 +26,7 @@
             .bi-search{  
                 position: absolute;
                 top: 12px;
-                right: 26px;
+                right: 26px; 
             }
         }
         .lista{
@@ -36,6 +39,11 @@
                 height: 60px;
                 padding-top: 10px;
                 border-bottom: 1px solid #ccc;
+                span{
+                    a{
+                        text-decoration: none;
+                    }
+                }
                 .icones{
                     display: flex;
                     justify-content: flex-end;
