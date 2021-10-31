@@ -1,5 +1,5 @@
 @import 'pages/index';
-@import 'pages/buscaPaciente';
+@import 'pages/buscar';
 @import 'pages/cadastro';
 @import 'pages/historico';
 
@@ -24,7 +24,7 @@ header{
             display: flex;
             align-items: center;
             transition: all 0.3s ease;
-            transition-delay: 0.1s;
+            transition-delay: 0.1s; 
             .nome-logo{
                 font-size: 30px;
                 color: #fff;

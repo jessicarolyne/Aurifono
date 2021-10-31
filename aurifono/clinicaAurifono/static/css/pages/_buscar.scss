@@ -61,4 +61,23 @@
             } 
         }
     }
+    /* Messages */
+    ul.messages{
+        padding: 0;
+        li{
+            list-style: none; 
+        }
+    }
+    /* Paginação */
+    .paginacao{
+        margin-bottom: 20px;
+        text-align: right;
+        .link{
+            position: relative;
+            .current{
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+        }
+    }
 } 
