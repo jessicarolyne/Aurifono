@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Editando informações do paciente: '{{paciente.nome}}'{% endblock %}
+{% block conteudo %}
+    <h1>Editando informações do paciente: '{{paciente.nome}}'</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-success" value="Salvar">
+    </form>
+{% endblock%}

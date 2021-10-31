@@ -27,4 +27,15 @@ def novoPaciente(request):
         form = pacienteForm()
         return render(request, 'clinicaAurifono/novoPaciente.html', {'form' : form})
 
-
+def editarPaciente(request, id):
+    paciente = get_object_or_404(paciente_paciente, pk=id)
+    form = pacienteForm(instance=paciente)
+    if request.method == 'POST':
+        form = pacienteForm(request.POST, instance=paciente)
+        if form.is_valid():
+            paciente.save()
+            return redirect('/')
+        else:
+            return render(request, 'clinicaAurifono/editar.html', {'form' : form, 'paciente' : paciente})
+    else:
+        return render(request, 'clinicaAurifono/editar.html', {'form' : form, 'paciente' : paciente})
