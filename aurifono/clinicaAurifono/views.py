@@ -1,12 +1,12 @@
 from django.http.response import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 
-from .models import paciente_paciente
 from .forms import pacienteForm
+from .models import paciente_paciente
  
 def buscaPaciente(request):
-    pacientes = paciente_paciente.objects.all() 
+    pacientes = paciente_paciente.objects.all().order_by('-DataCadastro')
     return render(request, 'clinicaAurifono/buscaPaciente.html', {'pacientes' : pacientes})
     
 def index(request):
@@ -17,7 +17,14 @@ def paciente(request, id):
     return render(request, 'clinicaAurifono/paciente.html', {'paciente' : paciente})
 
 def novoPaciente(request):
-    form = pacienteForm()
-    return render(request, 'clinicaAurifono/novoPaciente.html', {'form' : form})
+    if request.method == 'POST':
+        form = pacienteForm(request.POST)
+        if form.is_valid():
+            paciente_paciente = form.save(commit=False)
+            paciente_paciente.save()
+            return redirect('/')
+    else:
+        form = pacienteForm()
+        return render(request, 'clinicaAurifono/novoPaciente.html', {'form' : form})
 
 
