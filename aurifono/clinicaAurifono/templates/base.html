@@ -170,9 +170,12 @@
               <i class="bx bx-menu"></i>
               <a href="/"><span class="empresa"><strong class="auri">Auri</strong>fono</span></a>
             </div>
-            <div class="busca">
-              <i class="bx bx-search"></i>
-              <input type="text" placeholder="buscar">
+            <div class="logout">
+              {% if user.is_authenticated %}
+              <span> <a href="/accounts/logout">Sair<i class='bx bx-log-out'></a></i></span>
+              {% else %}
+              <span> <a href="/accounts/login">Entrar</a></span>
+              {% endif %}
             </div>
           </div>
         </section>

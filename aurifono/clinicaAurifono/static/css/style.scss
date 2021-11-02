@@ -2,6 +2,7 @@
 @import 'pages/buscar';
 @import 'pages/cadastro';
 @import 'pages/historico';
+@import 'pages/login';
 
 *{
     margin: 0;
@@ -265,11 +266,17 @@ header{
             opacity: 0;
             pointer-events: none;
         }
-        .busca{
+        .logout{
             position: relative;
+            cursor: pointer;
+            text-align: end;
             width: 250px;
             height: 35px;
             margin-right: 15px;
+            a{
+                text-decoration: none;
+                color: #1d1b31;
+            }
             input{
                 position: absolute;
                 width: 100%;

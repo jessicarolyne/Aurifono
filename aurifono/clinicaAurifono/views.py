@@ -3,11 +3,13 @@ from django.http.response import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 
 from .forms import pacienteForm
 from .models import paciente_paciente
- 
+
+@login_required
 def buscaPaciente(request):
     busca = request.GET.get('busca')
     if busca:
@@ -18,14 +20,17 @@ def buscaPaciente(request):
         page = request.GET.get('page')
         pacientes = paginator.get_page(page)
     return render(request, 'clinicaAurifono/buscar.html', {'pacientes' : pacientes})
-    
+
+@login_required
 def index(request):
     return render(request, 'clinicaAurifono/index.html')
 
+@login_required
 def paciente(request, id):
     paciente = get_object_or_404(paciente_paciente, pk=id)
     return render(request, 'clinicaAurifono/paciente.html', {'paciente' : paciente})
 
+@login_required
 def novoPaciente(request):
     if request.method == 'POST':
         form = pacienteForm(request.POST)
@@ -37,6 +42,7 @@ def novoPaciente(request):
         form = pacienteForm()
         return render(request, 'clinicaAurifono/novo.html', {'form' : form})
 
+@login_required
 def editarPaciente(request, id):
     paciente = get_object_or_404(paciente_paciente, pk=id)
     form = pacienteForm(instance=paciente)
@@ -50,6 +56,7 @@ def editarPaciente(request, id):
     else:
         return render(request, 'clinicaAurifono/editar.html', {'form' : form, 'paciente' : paciente})
 
+@login_required
 def excluirPaciente(request, id):
     paciente = get_object_or_404(paciente_paciente, pk=id)
     paciente.delete()
