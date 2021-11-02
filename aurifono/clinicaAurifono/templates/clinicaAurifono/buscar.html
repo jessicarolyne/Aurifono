@@ -7,7 +7,7 @@
     <div class="offset-1 col-10 lista-pacientes">
         <h1>Lista de Pacientes</h1>
         <a class="link-botao" href="../novo/">
-            <div class="col-12 col-sm-4 col-md-2 btn-buscar">
+            <div class="col-12 col-sm-4 col-md-3 col-lg-3 btn-buscar">
                 <button type="button" class="btn btn-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#fff" class="bi bi-plus" viewBox="0 0 16 16">
                         <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -16,11 +16,13 @@
                 </button>
             </div>
         </a>
-        <div class="col-12 col-sm-6 col-md-9 barra-busca">
-            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-            </svg> -->
-            <input class="form-control" type="text" name="busca" id="busca" placeholder="Digite o nome do paciente">
+        <div class="col-12 col-sm-6 col-md-7 col-lg-8 barra-busca">
+            <form method="GET" id="busca-form">
+                <svg id="btn-busca" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+                <input class="form-control" type="text" name="busca" id="busca" placeholder="Digite o nome do paciente" value="{{request.GET.busca}}">
+            </form>
         </div>
         {% if messages %}
             <ul class="messages">
@@ -63,9 +65,11 @@
                         </svg>
                     </a>
                 {% endif %}
+                {% if pacientes.paginator.num_pages %}
                 <span class="current">
                     {{pacientes.number}} de {{pacientes.paginator.num_pages}}
                 </span>
+                {% endif %}
                 {% if pacientes.has_next %}
                     <a href="?page={{pacientes.next_page_number}}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">

@@ -30,4 +30,10 @@ btnexcluir.addEventListener("click", function(e){
         window.location.href = excluirlink
     }
 });
+
+let buscaForm = document.querySelector('#busca-form')
+let btnForm = document.querySelector('#btn-busca')
+btnForm.addEventListener('click', function(){
+    buscaForm.submit()
+});
 /* fim buscar */

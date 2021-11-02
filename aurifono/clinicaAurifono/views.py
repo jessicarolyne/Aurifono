@@ -9,10 +9,14 @@ from .forms import pacienteForm
 from .models import paciente_paciente
  
 def buscaPaciente(request):
-    pacientes_lista = paciente_paciente.objects.all().order_by('-DataCadastro')
-    paginator = Paginator(pacientes_lista, 8)
-    page = request.GET.get('page')
-    pacientes = paginator.get_page(page)
+    busca = request.GET.get('busca')
+    if busca:
+        pacientes = paciente_paciente.objects.filter(nome__icontains=busca)
+    else:
+        pacientes_lista = paciente_paciente.objects.all().order_by('-DataCadastro')
+        paginator = Paginator(pacientes_lista, 8)
+        page = request.GET.get('page')
+        pacientes = paginator.get_page(page)
     return render(request, 'clinicaAurifono/buscar.html', {'pacientes' : pacientes})
     
 def index(request):

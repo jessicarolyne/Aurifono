@@ -1,4 +1,5 @@
 from django.urls import path
+from django.urls.conf import include, include
 from . import views
 
 urlpatterns = [
@@ -8,4 +9,5 @@ urlpatterns = [
     path('editar/<int:id>', views.editarPaciente, name='Editar Paciente'),
     path('excluir/<int:id>', views.excluirPaciente, name='Editar Paciente'),
     path('', views.index, name='index'),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

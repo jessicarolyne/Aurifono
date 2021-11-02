@@ -236,7 +236,7 @@ header{
     left:290px;
     width: calc(100% - 290px);
     height: 60px;
-    box-shadow: 0 2px 5px;
+    box-shadow: 0 2px 5px; 
     transition: all 0.5s ease;
     .conteudo-home{
         display: flex;
@@ -335,7 +335,13 @@ header{
         transition: all 0.5s ease;
     }
 }
-.footer{
-    position: fixed;
-    bottom: 0;
+.paginas, .paginas .close{
+    position: relative;
+    min-height: 100%;
+}
+.footer, .footer .close{ 
+    position: absolute;
+    // bottom: 0;
+    // height: 100px;
+    // width: 100%;
 }

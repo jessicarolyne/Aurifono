@@ -18,6 +18,9 @@
                         margin-right:10px;
                         // margin-left:5px;
                     } 
+                    width: 100%;
+                    @media(max-width:576px){
+                    }
                 }
             }
         }
@@ -28,8 +31,13 @@
             display: inline-block;
             .bi-search{  
                 position: absolute;
-                top: 12px;
-                right: 26px; 
+                // top: 83px;
+                margin-top: 10px;
+                margin-left: 12px; 
+                cursor: pointer;
+            } 
+            .form-control{
+                padding: .375rem 0.75rem .375rem 2rem; 
             }
         }
         .lista{
@@ -39,7 +47,8 @@
                 justify-content: space-between;
                 list-style: none;
                 font-size: 22px;
-                height: 60px;
+                // height: 60px;
+                height: 100%;
                 padding-top: 10px;
                 border-bottom: 1px solid #ccc;
                 span{
