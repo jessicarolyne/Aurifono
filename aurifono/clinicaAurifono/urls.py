@@ -9,5 +9,6 @@ urlpatterns = [
     path('editar/<int:id>', views.editarPaciente, name='Editar Paciente'),
     path('excluir/<int:id>', views.excluirPaciente, name='Editar Paciente'),
     path('', views.index, name='index'),
+    path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
 ]

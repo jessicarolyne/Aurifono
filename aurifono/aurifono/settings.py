@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'clinicaAurifono',
     'crispy_forms',
+    'accounts',
 ]
 
 MIDDLEWARE = [
