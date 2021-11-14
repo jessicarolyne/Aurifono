@@ -1,4 +1,3 @@
-https://cdn.mysql.com/Downloads/Connector-Python/mysql-connector-python-2.1.3.tar.gz
 asgiref==3.4.1
 Django==3.2.8
 django-admin==2.0.1
