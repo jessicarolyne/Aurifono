@@ -6,8 +6,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 
-from .forms import pacienteForm
-from .models import paciente_paciente
+from .forms import pacienteForm, profissionalForm
+from .models import paciente_paciente, profissionalenc_profissionalenc
 
 @login_required
 def buscaPaciente(request):
@@ -62,3 +62,53 @@ def excluirPaciente(request, id):
     paciente.delete()
     messages.info(request,'Paciente excluído com sucesso!')
     return redirect('../buscar')
+
+@login_required
+def profissional(request, id):
+    profissional = get_object_or_404(profissionalenc_profissionalenc, pk=id)
+    return render(request, 'clinicaAurifono/profissional.html', {'profissional' : profissional})
+
+@login_required
+def novoProfissional(request):
+    if request.method == 'POST':
+        form = profissionalForm(request.POST)
+        if form.is_valid():
+            profissional_profissional = form.save(commit=False)
+            profissional_profissional.save()
+            return redirect('../buscarProfissional')
+    else:
+        form = profissionalForm()
+        return render(request, 'clinicaAurifono/novoProfissional.html', {'form' : form})
+
+@login_required
+def editarProfissional(request, id):
+    profissional = get_object_or_404(profissionalenc_profissionalenc, pk=id)
+    form = profissionalForm(instance=profissional)
+    if request.method == 'POST':
+        form = profissionalForm(request.POST, instance=profissional)
+        if form.is_valid():
+            profissional.save()
+            return redirect('../buscar')
+        else:
+            return render(request, 'clinicaAurifono/editar.html', {'form' : form, 'profissional' : profissional})
+    else:
+        return render(request, 'clinicaAurifono/editarProfissional.html', {'form' : form, 'profissional' : profissional})
+
+@login_required
+def excluirProfissional(request, id):
+    profissional = get_object_or_404(profissionalenc_profissionalenc, pk=id)
+    profissional.delete()
+    messages.info(request,'Profissional excluído com sucesso!')
+    return redirect('../buscarProfissional')
+
+@login_required
+def buscaProfissional(request):
+    busca = request.GET.get('busca')
+    if busca:
+        profissionais = profissionalenc_profissionalenc.objects.filter(nome__icontains=busca)
+    else:
+        profissionais_lista = profissionalenc_profissionalenc.objects.all()
+        paginator = Paginator(profissionais_lista, 8)
+        page = request.GET.get('page')
+        profissionais = paginator.get_page(page)
+    return render(request, 'clinicaAurifono/buscarProfissional.html', {'profissionais' : profissionais})
