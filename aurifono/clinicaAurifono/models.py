@@ -62,3 +62,67 @@ class comunicoralidade_comunicoralidade(models.Model):
     avaliacaoAD_id = models.ForeignKey(avaliacaoad_avaliacaoad, on_delete=models.PROTECT, verbose_name='Avaliação')
     def __str__(self):
         return self.resp_oralidade
+
+
+
+class TipoVoz(models.Model):
+    descricao = models.CharField(max_length=150)
+    
+    class Meta:
+        verbose_name_plural = "Tipo de Voz"
+        
+    def __str__(self):
+        return self.descricao
+    
+    
+class Ressonancia(models.Model):
+    descricao = models.CharField(max_length=150)
+
+    class Meta:
+        verbose_name_plural = "Tipo de Ressonancia"
+        
+    def __str__(self):
+        return self.descricao
+    
+class AtaqueVocal(models.Model):
+    descricao = models.CharField(max_length=150)
+
+    class Meta:
+        verbose_name_plural = "Ataque Vocal"
+        
+    def __str__(self):
+        return self.descricao
+
+class Pitch(models.Model):
+    descricao = models.CharField(max_length=150)
+
+    class Meta:
+        verbose_name_plural = "Pitch"
+        
+    def __str__(self):
+        return self.descricao            
+    
+class Loudness(models.Model):
+    descricao = models.CharField(max_length=150)
+
+    class Meta:
+        verbose_name_plural = "Loudness"
+        
+    def __str__(self):
+        return self.descricao
+    
+class Modulacao(models.Model):
+    descricao = models.CharField(max_length=150)
+
+    class Meta:
+        verbose_name_plural = "Modulação"
+        
+    def __str__(self):
+        return self.descricao    
+
+class Qualidadeemis(models.Model):
+    descricao = models.CharField(max_length=150)
+    class Meta:
+        verbose_name_plural = "Qualidade na Emissão"
+    def __str__(self):
+        return self.descricao    
