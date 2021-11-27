@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Editando informações da Pergunta: '{{tipodevoz.dsc_habilidade}}'{% endblock %}
+{% block conteudo %}
+    <h1 class="mt-5">Editando informações da Pergunta:<br> '{{tipodevoz.descricao}}'</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" class="btn btn-success" value="Salvar">
+    </form>
+{% endblock%}

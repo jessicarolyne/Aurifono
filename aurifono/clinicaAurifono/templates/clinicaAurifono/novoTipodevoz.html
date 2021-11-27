@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Nova Pergunta de Tipo de Voz{% endblock %}
+{% block conteudo %}
+    <h1 mt-5>Adicione uma nova pergunta Tipo de Voz:</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" class="btn btn-success" value="Cadastrar">
+    </form>
+{% endblock%}
