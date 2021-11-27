@@ -40,6 +40,15 @@ INSTALLED_APPS = [
     'clinicaAurifono',
     'crispy_forms',
     'accounts',
+    'avaliacaoAD',
+    'ComunicOral',
+    'loudness',
+    'modulacao',
+    'pitch',
+    'qualidadeemis',
+    'ressonancia',
+    'tipodevoz',
+    'ataquevocal',
 ]
 
 MIDDLEWARE = [

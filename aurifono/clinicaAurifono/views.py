@@ -8,6 +8,15 @@ from django.core.paginator import Paginator
 
 from .forms import ComunicOralForm, TipoVozForm, pacienteForm, profissionalForm
 from .models import comunicoral_comunicoral, paciente_paciente, profissionalenc_profissionalenc, TipoVoz
+from ComunicOral.views import *
+from avaliacaoAD.views import *
+from tipodevoz.views import *
+from ressonancia.views import *
+from ataquevocal.views import *
+from pitch.views import *
+from loudness.views import *
+from modulacao.views import *
+from qualidadeemis.views import *
 
 @login_required
 def index(request):
@@ -221,3 +230,4 @@ def buscaTipodevoz(request):
         page = request.GET.get('page')
         tipodevozs = paginator.get_page(page)
     return render(request, 'clinicaAurifono/buscarTipodevoz.html', {'tipodevozs' : tipodevozs })
+

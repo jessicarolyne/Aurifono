@@ -3,6 +3,16 @@ from django.urls.conf import include, include
 from . import views
 
 urlpatterns = [
+    path('', include('ComunicOral.urls')),
+    path('', include('avaliacaoAD.urls')),
+    path('', include('tipodevoz.urls')),
+    path('', include('ressonancia.urls')),
+    path('', include('ataquevocal.urls')),
+    path('', include('pitch.urls')),
+    path('', include('loudness.urls')),
+    path('', include('modulacao.urls')),
+    path('', include('qualidadeemis.urls')),
+
     path('buscar/', views.buscaPaciente, name='Buscar Paciente'),
     path('buscarProfissional/', views.buscaProfissional, name='Buscar Profissional'),
     path('paciente/<int:id>', views.paciente, name='paciente'),
