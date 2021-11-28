@@ -40,6 +40,17 @@ INSTALLED_APPS = [
     'clinicaAurifono',
     'crispy_forms',
     'accounts',
+    'ataquevocal', 
+    'ComunicOral',
+    'loudness',
+    'modulacao',
+    'pitch',
+    'qualidadeemis',
+    'ressonancia',
+    'tipodevoz',
+    'paciente',
+    'ProfissionalEnc', 
+    'avaliacaoAD',
 ]
 
 MIDDLEWARE = [
@@ -83,7 +94,7 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'clinica',
+        'NAME': 'clinicaAurifono',
         'USER': 'root',
         'PASSWORD':'sis50819',
         'HOST':'localhost',

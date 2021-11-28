@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Avaliação do Paciente{% endblock %}
+{% block conteudo %}
+<section>
+    <div>
+        <h1>Avaliação do Paciente</h1>
+        <form method="post" action=".">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <!-- {{ form.as_p }} -->
+            
+        
+        <h1>1. Comunicação Oral</h1>
+               
+            {{ formoralidade.management_form }}
+                 
+            {% for ft in formoralidade %}
+               
+                <ul>
+                    <li>{{ ft }}</li>
+                    <!-- <li>{{ form|crispy }}</li> -->
+                   
+                </ul>
+               
+                
+            {% endfor %}
+    
+        <h1>2. Aspecto Vocal</h1>    
+        <h2> 2.1 Tipo de Voz</h2>  
+            {{ formtipodevozcad.management_form }}
+            
+            {% for ft in formtipodevozcad %}
+            <hr>
+                {{ft}}
+                
+            {% endfor %}
+    
+        <h2> 2.2 Ressonância</h2>  
+            {{ formressonanciacad.management_form }}
+            
+            {% for ft in formressonanciacad %}
+            <hr>
+                {{ft}}
+                
+            {% endfor %}
+    
+        <h2> 2.3 Ataque Vocal</h2>  
+            {{ formataquevocalcad.management_form }}
+            
+            {% for ft in formataquevocalcad %}
+            <hr>
+                {{ft}}
+                
+            {% endfor %}
+        <h2> 2.4 Pitch</h2>  
+            {{ formpitchcad.management_form }}
+            
+            {% for ft in formpitchcad %}
+            <hr>
+                {{ft}}
+                
+            {% endfor %} 
+        <h2> 2.5 Loudness</h2>  
+            {{ formloudnesscad.management_form }}
+            
+            {% for ft in formloudnesscad %}
+            <hr>
+                {{ft}}
+                
+            {% endfor %}
+        <h2> 2.6 Modulação</h2>  
+            {{ formmodulacaocad.management_form }}
+            
+            {% for ft in formmodulacaocad %}
+            <hr>
+                {{ft}}
+                
+            {% endfor %}  
+    
+        <h2> 2.7 Qualidade na Emissão</h2>  
+            {{ formqualidadeemis.management_form }}
+            
+            {% for ft in formqualidadeemis %}
+            <hr>
+                {{ft}}
+                
+            {% endfor %}  
+    
+            <div class="row">
+                <button type="submit" value="Salvar">Inserir</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

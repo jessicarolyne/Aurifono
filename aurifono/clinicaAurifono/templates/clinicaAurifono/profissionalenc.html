@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">">
+    <title>Profissional - Indicação</title>
+</head>
+<body>
+    <div class="col-8 m-auto pt-2 pb=2 text-center">
+        <h1>Cadastro do Profissional que Indicou o Paciente</h1>
+    </div>
+    <div class="col-8 m-auto pt-3 pb=2 text-center">
+        <a href="/" class="btn btn-info">Voltar</a>
+    </div>
+    <div class="col-8 m-auto pt-4 pb=2">
+        <div id="result"></div>
+            <form name="form" id="form" method="post" action="{% if prof %}/updateprofissional/{{prof.id}}/{% else %}/ProfissionalEnc/{% endif %}">
+                {% csrf_token %}
+                <div class="form-group mt-4">Nome : {{ form.nome  }}</div>
+                <div class="form-group mt-4">Status : {{ form.status  }}</div>
+                
+                <!--<input type"submit" class="btn btn-success" value="Salvar">
+                <button type="submit" value="Salvar">Inserir</button>-->
+                <button type="submit" class="btn btn-success" value="Salvar">Inserir</button>
+     
+            </form>
+    </div>  
+    <div class="col-11 m-auto pt-2 pb-2">
+        <h1>Listagem de Profissionais - Indicação</h1>
+        </div>
+            <!-- <div class="col-8 m-4 pt-3 pb-2">
+                    
+                    <form method="get">
+                        <input type="text" id="search" name="search" class="form-control" placeholder="Buscar..." >
+                    </form>
+                </div>   --> 
+        <div>
+     </div>   
+   
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Status</th>
+                <th scope="col">Ações</th>
+          
+            </tr>
+        </thead>
+        <tbody>
+            {% for prof in profissionalencs %}
+                <tr>
+                    <th>{{prof.id}}</th>
+                    <td>{{prof.nome}}</td>
+                    <td>{{prof.status}}</td>
+                   
+                    <td>
+                        <a href="/verprofissional/{{prof.id}}/" class="btn btn-dark">Visualizar</a>
+                        <a href="/editprofissional/{{prof.id}}/" class="btn btn-primary">Editar</a>
+                        <a href="/deleteprofissional/{{prof.id}}" class="btn btn-danger btnDel">Deletar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            
+        </tbody>   
+    </table> 
+</div>    
+    <!--<div class="pagination">
+        {% if db.has_previous %}
+            <a href="?page={{db.previous_page_number}}"> < </a>
+        {% endif  %}
+
+        {{db.number}}
+
+        {% if db.has_next %}
+            <a href="?page={{db.previous_page_number}}"> > </a>
+        {% endif  %}
+    </div>-->
+
+   {% load static %}
+   <script src="{% static 'javascript.js' %}"></script>
+         
+</body>
+</html>
+
+
