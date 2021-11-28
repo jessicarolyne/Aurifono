@@ -40,17 +40,6 @@ INSTALLED_APPS = [
     'clinicaAurifono',
     'crispy_forms',
     'accounts',
-    'ataquevocal', 
-    'ComunicOral',
-    'loudness',
-    'modulacao',
-    'pitch',
-    'qualidadeemis',
-    'ressonancia',
-    'tipodevoz',
-    'paciente',
-    'ProfissionalEnc', 
-    'avaliacaoAD',
 ]
 
 MIDDLEWARE = [
@@ -143,7 +132,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/buscar'
 
 LOGOUT_REDIRECT_URL = '/accounts/login'
 

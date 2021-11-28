@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
-{% block title %}Editando informações do paciente: '{{paciente.nome}}'{% endblock %}
+{% block title %}Editando informações da Pergunta: '{{loudnesss.descricao}}'{% endblock %}
 {% block conteudo %}
-    <h1 class="mt-5">Editando informações do paciente:<br> '{{paciente.nome}}'</h1>
+    <h1 class="mt-5">Editando informações da Pergunta:<br> '{{loudnesss.descricao}}'</h1>
     <form method="POST">
         {% csrf_token %}
         {{ form|crispy }}
